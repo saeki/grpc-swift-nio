@@ -1,0 +1,1 @@
+protoc ./proto/*.proto --swift_out=./HelloGRPC/HelloGRPC/ --swiftgrpc_out=./HelloGRPC/HelloGRPC/
