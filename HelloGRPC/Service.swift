@@ -16,15 +16,12 @@ class Service {
     static let shared = Service()
     
     private let group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
-    private let client: Helloworld_GreeterServiceClient
+    private let client: Helloworld_GreeterClient
     
     init() {
-        let configuration = ClientConnection.Configuration(
-            target: .hostAndPort("localhost", 9090),
-            eventLoopGroup: group
-        )
-        let connection = ClientConnection(configuration: configuration)
-        client = Helloworld_GreeterServiceClient(connection: connection)
+        let channel = ClientConnection.insecure(group: group)
+            .connect(host: "localhost", port: 9090)
+        client = Helloworld_GreeterClient(channel: channel)
     }
     
     deinit {

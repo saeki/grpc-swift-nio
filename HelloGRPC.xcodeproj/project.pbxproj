@@ -16,7 +16,7 @@
 		87A5D770241B809800EF4D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A5D76F241B809800EF4D46 /* Assets.xcassets */; };
 		87A5D773241B809800EF4D46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A5D772241B809800EF4D46 /* Preview Assets.xcassets */; };
 		87A5D776241B809800EF4D46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A5D774241B809800EF4D46 /* LaunchScreen.storyboard */; };
-		87A5D786241B97FA00EF4D46 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 87A5D785241B97FA00EF4D46 /* GRPC */; };
+		87D9A7662449EB8B006275D3 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = 87D9A7652449EB8B006275D3 /* GRPC */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87A5D786241B97FA00EF4D46 /* GRPC in Frameworks */,
+				87D9A7662449EB8B006275D3 /* GRPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +111,7 @@
 			);
 			name = HelloGRPC;
 			packageProductDependencies = (
-				87A5D785241B97FA00EF4D46 /* GRPC */,
+				87D9A7652449EB8B006275D3 /* GRPC */,
 			);
 			productName = HelloGRPC;
 			productReference = 87A5D766241B809600EF4D46 /* HelloGRPC.app */;
@@ -142,7 +142,7 @@
 			);
 			mainGroup = 87A5D75D241B809600EF4D46;
 			packageReferences = (
-				87A5D784241B97FA00EF4D46 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+				87D9A7642449EB8B006275D3 /* XCRemoteSwiftPackageReference "grpc-swift" */,
 			);
 			productRefGroup = 87A5D767241B809600EF4D46 /* Products */;
 			projectDirPath = "";
@@ -370,20 +370,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		87A5D784241B97FA00EF4D46 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+		87D9A7642449EB8B006275D3 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/grpc/grpc-swift.git";
 			requirement = {
 				kind = exactVersion;
-				version = "1.0.0-alpha.9";
+				version = "1.0.0-alpha.11";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		87A5D785241B97FA00EF4D46 /* GRPC */ = {
+		87D9A7652449EB8B006275D3 /* GRPC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 87A5D784241B97FA00EF4D46 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			package = 87D9A7642449EB8B006275D3 /* XCRemoteSwiftPackageReference "grpc-swift" */;
 			productName = GRPC;
 		};
 /* End XCSwiftPackageProductDependency section */

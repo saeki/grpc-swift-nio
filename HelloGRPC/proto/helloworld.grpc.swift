@@ -27,26 +27,26 @@ import NIOHTTP1
 import SwiftProtobuf
 
 
-/// Usage: instantiate Helloworld_GreeterServiceClient, then call methods of this protocol to make API calls.
-internal protocol Helloworld_GreeterService {
+/// Usage: instantiate Helloworld_GreeterClient, then call methods of this protocol to make API calls.
+internal protocol Helloworld_GreeterClientProtocol {
   func sayHello(_ request: Helloworld_HelloRequest, callOptions: CallOptions?) -> UnaryCall<Helloworld_HelloRequest, Helloworld_HelloReply>
 }
 
-internal final class Helloworld_GreeterServiceClient: GRPCClient, Helloworld_GreeterService {
-  internal let connection: ClientConnection
+internal final class Helloworld_GreeterClient: GRPCClient, Helloworld_GreeterClientProtocol {
+  internal let channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
 
   /// Creates a client for the helloworld.Greeter service.
   ///
   /// - Parameters:
-  ///   - connection: `ClientConnection` to the service host.
+  ///   - channel: `GRPCChannel` to the service host.
   ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
-  internal init(connection: ClientConnection, defaultCallOptions: CallOptions = CallOptions()) {
-    self.connection = connection
+  internal init(channel: GRPCChannel, defaultCallOptions: CallOptions = CallOptions()) {
+    self.channel = channel
     self.defaultCallOptions = defaultCallOptions
   }
 
-  /// Asynchronous unary call to SayHello.
+  /// Sends a greeting
   ///
   /// - Parameters:
   ///   - request: Request to send to SayHello.
@@ -62,6 +62,7 @@ internal final class Helloworld_GreeterServiceClient: GRPCClient, Helloworld_Gre
 
 /// To build a server, implement a class that conforms to this protocol.
 internal protocol Helloworld_GreeterProvider: CallHandlerProvider {
+  /// Sends a greeting
   func sayHello(request: Helloworld_HelloRequest, context: StatusOnlyCallContext) -> EventLoopFuture<Helloworld_HelloReply>
 }
 
@@ -83,4 +84,9 @@ extension Helloworld_GreeterProvider {
     }
   }
 }
+
+
+// Provides conformance to `GRPCPayload` for request and response messages
+extension Helloworld_HelloRequest: GRPCProtobufPayload {}
+extension Helloworld_HelloReply: GRPCProtobufPayload {}
 
